@@ -5,17 +5,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --green-dark:    #596d2d;
-  --green-mid:     #729045;
-  --green-btn:     #729045;
-  --green-light:   #cfeec5;
-  --green-pale:    #e3f3d8;
-  --green-bg:      #689138;
-  --green-sheet:   #e3f3d8;
-  --text-dark:     #596d2d;
-  --text-muted:    #6b7c3f;
-  --text-body:     #596d2d;
-  --white:         #ffffff;
+  /* Swapped: Previous backgrounds are now text/buttons, and vice versa */
+  --green-dark:    #e3f3d8; /* Was background, now text */
+  --green-mid:     #cfeec5; /* Was background, now text */
+  --green-btn:     #596d2d; /* Was text, now button */
+  --green-light:   #e3f3d8; 
+  --green-pale:    #596d2d; /* Was text, now background */
+  --green-bg:      #596d2d; 
+  --green-sheet:   #596d2d; /* Was text, now card sheet */
+  --text-dark:     #e3f3d8; /* Was background */
+  --text-muted:    #cfeec5; 
+  --text-body:     #e3f3d8; 
+  --white:         #596d2d; /* Inverted to match the new dark theme */
+  
   --radius-input:  50px;
   --radius-card:   32px;
   --font-main:     'Nunito', sans-serif;
@@ -113,9 +115,11 @@ html, body {
   font-family: var(--font-main);
   font-size: clamp(10px, 1.5vw, 14px);
   font-weight: 900;
-  color: var(--green-dark);
+  /* Force this to be dark green specifically */
+  color: #596d2d; 
   margin-top: -25px;
   letter-spacing: 0;
+  /* Adjust text-shadow so it remains readable */
   text-shadow: 0 1px 12px rgba(255,255,255,.65);
   animation: fadeDown .7s .08s cubic-bezier(.22,.8,.32,1) both;
 }
@@ -420,8 +424,8 @@ html, body {
   padding: 18px;
   border: 1px solid #ddd;
   border-radius: var(--radius-input);
-  background: var(--white);
-  color: #555;
+  background: #e3f3d8;
+  color: #596d2d;
   font-family: var(--font-main);
   font-size: 1rem;
   font-weight: 700;
