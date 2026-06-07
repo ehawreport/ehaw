@@ -20,12 +20,17 @@ const lightboxImg     = document.getElementById('lightboxImg');
 const imageLightbox   = document.getElementById('imageLightbox');
 const lightboxClose   = document.getElementById('lightboxClose');
 
+<<<<<<< HEAD
 /* ── Fetch Verification Queue from Supabase ──── */
+=======
+/* ── Updated Fetch Logic ──────────────────── */
+>>>>>>> d0f3a5d (Fixing paths and adding auth)
 async function fetchQueue() {
   try {
     const supabase = window.supabaseClient;
     if (!supabase) throw new Error('Supabase configuration linkage missing.');
 
+<<<<<<< HEAD
     console.log('Fetching awaiting screening log queue...');
 
     // Fetch all records from your table
@@ -39,6 +44,22 @@ async function fetchQueue() {
     // Strict Filter: Only show reports where validity is 'Awaiting Review' or completely null/blank
     queueReports = (data || []).filter(report => {
       return report.validity === 'Pending';
+=======
+    const { data, error } = await supabase
+      .from('reports')
+      .select('*')
+      .order('created_at', { ascending: true });
+
+    if (error) throw error;
+
+    // LOG THIS TO YOUR CONSOLE (F12 -> Console)
+    console.log('Raw data from Supabase:', data);
+
+    // TEMPORARILY REMOVE THE FILTER
+    // We assign all data so we can see what's really in the 'validity' column
+    queueReports = (data || []).filter(report => {
+      return report.validity === 'Pending' || report.validity === null || report.validity === '';
+>>>>>>> d0f3a5d (Fixing paths and adding auth)
     });
 
     buildTable();
@@ -120,8 +141,13 @@ function openReportModal(index) {
   const footer = document.getElementById('modalFooter');
   if (footer) {
     footer.innerHTML = `
+<<<<<<< HEAD
       <button class="modal-btn accept-btn" onclick="executeVerification(${report.id}, 'Valid')">Mark Valid</button>
       <button class="modal-btn decline-btn" onclick="executeVerification(${report.id}, 'Invalid')">Mark Invalid</button>
+=======
+      <button class="modal-btn accept-btn" onclick="executeVerification('${report.id}', 'Valid')">Mark Valid</button>
+      <button class="modal-btn decline-btn" onclick="executeVerification('${report.id}', 'Invalid')">Mark Invalid</button>
+>>>>>>> d0f3a5d (Fixing paths and adding auth)
     `;
   }
 
@@ -246,4 +272,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
   if (sidebarLogout) sidebarLogout.addEventListener('click', handleLogout);
+<<<<<<< HEAD
 });
+=======
+});
+
+window.executeVerification = executeVerification;
+window.openReportModal = openReportModal;
+>>>>>>> d0f3a5d (Fixing paths and adding auth)

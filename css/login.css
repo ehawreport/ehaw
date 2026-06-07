@@ -186,6 +186,10 @@ html, body {
   line-height: 1.05;
   margin-bottom: 32px;
   letter-spacing: -.5px;
+<<<<<<< HEAD
+=======
+  margin-top: 40px;
+>>>>>>> d0f3a5d (Fixing paths and adding auth)
 }
 
 /* =============================================
@@ -236,7 +240,10 @@ html, body {
   outline: none;
   transition: background .2s, box-shadow .2s;
   box-shadow: 0 2px 8px rgba(89,109,45,.06);
+<<<<<<< HEAD
   -webkit-appearance: none;
+=======
+>>>>>>> d0f3a5d (Fixing paths and adding auth)
 }
 
 .login-form input::placeholder {
@@ -436,4 +443,13 @@ html, body {
 .btn-google:hover {
   background: #f9f9f9;
   box-shadow: 0 2px 8px rgba(0,0,0,.1);
+<<<<<<< HEAD
+=======
+}
+
+@media (min-width: 960px) {
+  .card h1 {
+    margin-top: 100px; /* Bigger gap on desktop */
+  }
+>>>>>>> d0f3a5d (Fixing paths and adding auth)
 }
