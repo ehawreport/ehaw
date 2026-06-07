@@ -49,7 +49,7 @@
 <body>
   <p>Authenticating...</p>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../js/config.js"></script>
+  <script src="js/config.js"></script>
   <script>
     async function handleCallback() {
       // 1. Get the session from the URL hash
@@ -69,9 +69,9 @@
 
       // 3. Role-based redirect
       if (profile && profile.role === 'Admin') {
-        window.location.href = '../admin/home.html';
+        window.location.href = 'admin/home.html';
       } else {
-        window.location.href = '../index.html';
+        window.location.href = 'index.html';
       }
     }
     handleCallback();
